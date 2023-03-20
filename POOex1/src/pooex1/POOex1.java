@@ -6,6 +6,9 @@ además definir los métodos getters y setters correspondientes.
  */
 package pooex1;
 
+import Entidad.Cancion;
+import Servicio.CancionServicio;
+
 /**
  *
  * @author Sebastian
@@ -16,7 +19,11 @@ public class POOex1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        CancionServicio cs = new CancionServicio();
+        Cancion c1 = cs.agregarCancion();
+        Cancion c2 = cs.agregarCancion();
+        cs.mostrarCancion(c1);
+        cs.mostrarCancion(c2);
     }
     
 }
