@@ -92,7 +92,7 @@ public class AhorcadoServicio {
                 System.out.println("La letra no pertenece a la palabra");
             }
         } else {
-            System.out.println("La letra no pertenece a la palabra");
+            System.out.println("La letra ya habia sido encontrada.");
 
         }
 
@@ -117,6 +117,14 @@ public class AhorcadoServicio {
         System.out.println("Número de oportunidades restantes: " + game.getCantJugadasMax());
     }
 
+    public void mostrarPalabra(Ahorcado game) {
+        String palabra = "";
+        for (int i = 0; i < game.getVector().length; i++) {
+            palabra = palabra.concat(game.getVector()[i]);
+        }
+        System.out.println(palabra);
+    }
+
     public void juego() {
         Ahorcado juego = crearJuego();
 
@@ -127,7 +135,8 @@ public class AhorcadoServicio {
             intentos(juego, letra);
         } while (juego.getCantJugadasMax() > 0 && juego.getCantEncontradas() < juego.getVector().length);
         if (juego.getCantEncontradas() == juego.getVector().length) {
-            System.out.println("Felicitaciones! has encontrado la palabra!");
+            System.out.print("Felicitaciones! has encontrado la palabra! La palabra era: ");
+            mostrarPalabra(juego);
         } else {
             System.out.println("Lo sentimos, no hay más oportunidades");
         }
