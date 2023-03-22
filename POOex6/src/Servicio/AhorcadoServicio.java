@@ -103,7 +103,7 @@ public class AhorcadoServicio {
         int busq = buscar(game, letra);
         int total = game.getCantEncontradas() + busq;
         game.setCantEncontradas(total);
-        if (busq > 0 && game.getCantJugadasMax() > 1 || busq == 0 && game.getCantJugadasMax() > 1) //no hay mas oportunidades cuando busq == 0 y game.getCantJugadasMax == 1. 
+        if (busq > 0 && game.getCantJugadasMax() >= 1 || busq == 0 && game.getCantJugadasMax() > 1) //no hay mas oportunidades cuando busq == 0 y game.getCantJugadasMax == 1. 
         {
             System.out.println("Número de letras (encontradas, faltantes): (" + game.getCantEncontradas() + ", " + (game.getVector().length - game.getCantEncontradas()) + ")");
         }
