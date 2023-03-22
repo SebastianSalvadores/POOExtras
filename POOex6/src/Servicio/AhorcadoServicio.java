@@ -45,7 +45,7 @@ public class AhorcadoServicio {
         for (int i = 0; i < palabra.length(); i++) {
             array[i] = palabra.substring(i, (i + 1));
         }
-        String vector[] = new String [palabra.length()];
+        String vector[] = new String[palabra.length()];
         Arrays.fill(vector, "0");
         Ahorcado newGame = new Ahorcado(array, 0, jugadas, vector);
         System.out.println("Juego creado! limpia la consola para ocultar la palabra. (ctrl + L)");
@@ -61,14 +61,12 @@ public class AhorcadoServicio {
     public int buscar(Ahorcado game, String letra) {
         int encontradas = 0;
         String letrasEncontradas[] = game.getLetrasEnc();
-        boolean repite = true;
+        boolean repite = false;
         int j = 0;
         for (int i = 0; i < letrasEncontradas.length; i++) {
             if (letrasEncontradas[i].equalsIgnoreCase(letra)) {
-                
+                repite = true;
                 break;
-            }else{
-                repite = false;
             }
         }
         if (repite == false) {
@@ -87,11 +85,15 @@ public class AhorcadoServicio {
                     j++;
                 }
             }
-            System.out.println("La letra pertenece a la palabra.");
-            game.setLetrasEnc(letrasEncontradas);
-        } else{
+            if (encontradas != 0) {
+                System.out.println("La letra pertenece a la palabra.");
+                game.setLetrasEnc(letrasEncontradas);
+            } else {
+                System.out.println("La letra no pertenece a la palabra");
+            }
+        } else {
             System.out.println("La letra no pertenece a la palabra");
-            
+
         }
 
         return encontradas;
@@ -117,7 +119,7 @@ public class AhorcadoServicio {
 
     public void juego() {
         Ahorcado juego = crearJuego();
-        
+
         do {
             System.out.println("Ingrese una letra:");
             String letra = leer.next();

@@ -39,5 +39,5 @@ public class POOex6 {
         AhorcadoServicio as = new AhorcadoServicio();
         as.juego();
     }
-    
+
 }

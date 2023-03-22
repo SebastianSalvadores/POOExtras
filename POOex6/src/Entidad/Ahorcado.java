@@ -29,6 +29,7 @@ package Entidad;
  * @author Sebastian
  */
 public class Ahorcado {
+
     //atributos
     private String vector[];
     private int cantEncontradas;
@@ -77,9 +78,4 @@ public class Ahorcado {
         this.letrasEnc = letrasEnc;
     }
 
-    
-    
-    
-    
-    
 }
