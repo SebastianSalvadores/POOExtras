@@ -103,7 +103,10 @@ public class AhorcadoServicio {
         int busq = buscar(game, letra);
         int total = game.getCantEncontradas() + busq;
         game.setCantEncontradas(total);
-        System.out.println("Número de letras (encontradas, faltantes): (" + game.getCantEncontradas() + ", " + (game.getVector().length - game.getCantEncontradas()) + ")");
+        if (busq > 0 && game.getCantJugadasMax() > 1 || busq == 0 && game.getCantJugadasMax() > 1) //no hay mas oportunidades cuando busq == 0 y game.getCantJugadasMax == 1. 
+        {
+            System.out.println("Número de letras (encontradas, faltantes): (" + game.getCantEncontradas() + ", " + (game.getVector().length - game.getCantEncontradas()) + ")");
+        }
         return (busq == 0);
     }
 
@@ -114,7 +117,9 @@ public class AhorcadoServicio {
             intentos -= 1;
         }
         game.setCantJugadasMax(intentos);
-        System.out.println("Número de oportunidades restantes: " + game.getCantJugadasMax());
+        if (intentos != 0) {
+            System.out.println("Número de oportunidades restantes: " + game.getCantJugadasMax());
+        }
     }
 
     public void mostrarPalabra(Ahorcado game) {
